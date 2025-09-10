@@ -1,0 +1,230 @@
+/* Home Container Styling */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f0f8ff, #b0c4de);
+  color: #333;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden; /* Prevents overflow on animations */
+}
+
+/* Home Header Styling */
+.home-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.home-header h1 {
+  font-size: 3rem;
+  color: #3498db;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 6px rgba(52, 152, 219, 0.5);
+  animation: glowText 2s infinite alternate;
+}
+
+.home-header p {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  animation: fadeIn 2s ease-out 1s;
+}
+
+/* Pet Gallery Styling */
+.pet-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Pet Card Styling */
+.pet-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px; /* Slightly wider card for better image fit */
+  animation: revealCard 1s ease-out;
+}
+
+.pet-card:hover {
+  transform: translateY(-12px); /* Elevates the card on hover */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3); /* More shadow on hover */
+}
+
+/* Pet Card Image Styling */
+.pet-card img {
+  width: 100%;
+  height: 220px; /* Increased height for a better visual display */
+  object-fit: cover; /* Ensures the image covers the entire space */
+  border-radius: 10px; /* Adds rounded corners for a modern look */
+  border-bottom: 4px solid #3498db; /* Adds a border at the bottom for emphasis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+}
+
+.pet-card:hover img {
+  transform: scale(1.08); /* Slight zoom on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More intense shadow on hover */
+}
+
+.pet-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Pet Card Text Styling */
+.pet-card h2 {
+  font-size: 1.6rem;
+  color: #2980b9;
+  margin: 15px 0;
+  transition: color 0.3s ease;
+}
+
+.pet-card:hover h2 {
+  color: #1abc9c;
+}
+
+.pet-card p {
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+/* Home Footer Styling */
+.home-footer {
+  background: #2c3e50; /* Dark background for footer */
+  color: #ecf0f1; /* Light text for contrast */
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 1.2s ease-out;
+}
+
+/* Feedback Button */
+.feedback-button {
+  background: linear-gradient(45deg, #ff6b6b, #f06595); /* Vivid gradient */
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 18px;
+  padding: 12px 25px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden; /* Ensure pseudo-element stays hidden */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fieryGlow 2s infinite;
+}
+
+.feedback-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease;
+}
+
+.feedback-button:hover::before {
+  opacity: 1;
+}
+
+.feedback-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 99, 71, 0.6); /* Fiery glow effect */
+}
+
+.home-footer p {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+  animation: fadeIn 2s ease-out 1.5s;
+}
+
+/* Animation Keyframes */
+@keyframes glowText {
+  from {
+    text-shadow: 3px 3px 6px rgba(52, 152, 219, 0.5);
+  }
+  to {
+    text-shadow: 3px 3px 10px rgba(255, 69, 0, 0.8);
+  }
+}
+
+@keyframes fieryGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealCard {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .home-header p {
+    font-size: 1.2rem;
+  }
+
+  .pet-card {
+    width: 200px;
+  }
+
+  .feedback-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
